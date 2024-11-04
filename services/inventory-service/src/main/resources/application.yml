@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: inventory-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/inventory-service
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: inventoryService
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.type.mapping: inventoryKafka:com.dev.inventory_service.kafka.InventoryKafka
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+
+cors:
+  allow:
+    origin: http://localhost:8222
+
+server:
+  port: 8070
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  observations:
+    key-values:
+      application: inventory-service
+  tracing:
+    sampling:
+      probability: 1.0
+# Loki URL
+loki:
+  url: http://localhost:3100/loki/api/v1/push
