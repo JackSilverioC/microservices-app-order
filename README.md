@@ -6,7 +6,6 @@ Este proyecto implementa un sistema de microservicios utilizando tecnologías co
 
 ## Tabla de Contenidos
 
-- [Arquitectura](#arquitectura)
 - [Servicios](#servicios)
     - [Product Service](#product-service)
     - [Order Service](#order-service)
@@ -20,16 +19,6 @@ Este proyecto implementa un sistema de microservicios utilizando tecnologías co
 - [Arquitectura de Eventos con Kafka](#arquitectura-de-eventos-con-kafka)
 - [Observabilidad con Grafana Stack](#observabilidad-con-grafana-stack)
 - [Envío de Correos con JavaMailSender](#envío-de-correos-con-javamailsender)
-
----
-
-## Arquitectura
-
-### Arquitectura de Alto Nivel
-Se proporciona una descripción de la arquitectura de microservicios, incluyendo los componentes y cómo interactúan entre sí.
-
-### Arquitectura Lógica
-La arquitectura lógica describe los detalles técnicos de cada servicio y sus relaciones.
 
 ---
 
